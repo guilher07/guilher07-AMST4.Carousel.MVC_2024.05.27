@@ -5,10 +5,12 @@ namespace AMST4.Carousel.MVC.Data
 {
     public class ApplicationDataContext : DbContext
     {
-        public ApplicationDataContext(DbContextOptions<ApplicationDataContext> opts) : base(opts)
+        public ApplicationDataContext(DbContextOptions<ApplicationDataContext> options) : base(options)
         {
 
         }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Size> Size { get; set; } 
     }
 }

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AMST4.Carousel.MVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1>Produtos</h1>
+
+<p>
+    <a asp-action="AddProduct">Criar Novo Produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Nome
+            </th>
+            <th>
+               Descrição
+            </th>
+            <th>
+                URL da Imagem
+            </th>
+            <th>
+                Preço
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="EditProduct" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="DetailsProduct" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="DeleteProduct" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
